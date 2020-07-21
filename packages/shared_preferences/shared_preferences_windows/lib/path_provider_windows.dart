@@ -4,7 +4,7 @@
 import 'dart:io';
 import 'dart:async';
 
-import 'package:xdg_directories/xdg_directories.dart' as xdg;
+//import 'package:xdg_directories/xdg_directories.dart' as xdg;
 import 'package:path/path.dart' as path;
 import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 
@@ -19,14 +19,17 @@ class PathProviderWindows extends PathProviderPlatform {
 
   @override
   Future<String> getTemporaryPath() {
-    return Future.value("/tmp");
+    return Future.value("c:\tmp");
   }
+
+  String _pathBase = 'c:\\';
 
   @override
   Future<String> getApplicationSupportPath() async {
-    final processName = path.basenameWithoutExtension(
-        await File('/proc/self/exe').resolveSymbolicLinks());
-    final directory = Directory(path.join(xdg.dataHome.path, processName));
+    final processName = path
+        .basenameWithoutExtension(await File('c:\\').resolveSymbolicLinks());
+    String _path = 'c:\\';
+    final directory = Directory(path.join(_path, processName));
     // Creating the directory if it doesn't exist, because mobile implementations assume the directory exists
     if (!await directory.exists()) {
       await directory.create(recursive: true);
@@ -36,11 +39,11 @@ class PathProviderWindows extends PathProviderPlatform {
 
   @override
   Future<String> getApplicationDocumentsPath() {
-    return Future.value(xdg.getUserDirectory('DOCUMENTS').path);
+    return Future.value(_pathBase); //xdg.getUserDirectory('DOCUMENTS').path);
   }
 
   @override
   Future<String> getDownloadsPath() {
-    return Future.value(xdg.getUserDirectory('DOWNLOAD').path);
+    return Future.value(_pathBase); //xdg.getUserDirectory('DOWNLOAD').path);
   }
 }

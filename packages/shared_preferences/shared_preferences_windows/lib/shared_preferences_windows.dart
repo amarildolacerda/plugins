@@ -29,9 +29,10 @@ class SharedPreferencesWindows extends SharedPreferencesStorePlatform {
 
   /// Gets the file where the preferences are stored.
   Future<File> _getLocalDataFile() async {
-    final pathProvider = PathProviderWindows();
-    final directory = await pathProvider.getApplicationSupportPath();
-    return fs.file(path.join(directory, 'shared_preferences.json'));
+    // final pathProvider = PathProviderWindows();
+    // final directory = await pathProvider.getApplicationSupportPath();
+    // return fs.file(path.join(directory, 'shared_preferences.json'));
+    return fs.file('shared_preferences.json');
   }
 
   /// Gets the preferences from the stored file. Once read, the preferences are

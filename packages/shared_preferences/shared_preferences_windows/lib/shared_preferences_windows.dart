@@ -10,7 +10,7 @@ import 'package:file/file.dart';
 import 'package:file/local.dart';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart' as path;
-import 'path_provider_windows.dart';
+//import 'package:path_provider_windows/path_provider_windows.dart';
 import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
 
 /// The Linux implementation of [SharedPreferencesStorePlatform].
@@ -29,9 +29,9 @@ class SharedPreferencesWindows extends SharedPreferencesStorePlatform {
 
   /// Gets the file where the preferences are stored.
   Future<File> _getLocalDataFile() async {
-    // final pathProvider = PathProviderWindows();
-    // final directory = await pathProvider.getApplicationSupportPath();
-    // return fs.file(path.join(directory, 'shared_preferences.json'));
+    //final pathProvider = PathProvider();
+    //final directory = await pathProvider.getApplicationSupportPath();
+    //return fs.file(path.join(directory, 'shared_preferences.json'));
     return fs.file('shared_preferences.json');
   }
 

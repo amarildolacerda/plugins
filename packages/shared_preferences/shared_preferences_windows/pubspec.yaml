@@ -24,6 +24,7 @@ dependencies:
   path_provider_platform_interface:
   shared_preferences_platform_interface: ^1.0.0
 
+  #path_provider: ^1.16.11
   path_provider_windows: ^0.0.1+2
 
 dev_dependencies:
